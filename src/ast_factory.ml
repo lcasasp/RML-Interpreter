@@ -1,0 +1,33 @@
+open Ast
+
+let make_unit () = EUnit ()
+let make_bool b = EBool b
+let make_int n = EInt n
+let make_string s = EString s
+let make_var x = EVar x
+let make_pair e1 e2 = EPair (e1, e2)
+let make_nil () = ENil
+let make_cons e1 e2 = ECons (e1, e2)
+let make_bop b e1 e2 = EBop (b, e1, e2)
+let make_uop u e = EUop (u, e)
+let make_seq e1 e2 = ESeq (e1, e2)
+let make_ifelse e1 e2 e3 = EIf (e1, e2, e3)
+let make_fun p e = EFun (p, e)
+let make_app e1 e2 = EApp (e1, e2)
+let make_let p e1 e2 = ELet (p, e1, e2)
+let make_let_rec p e1 e2 = failwith "Unimplemented: make_let_rec"
+let make_let_defn p e = DLet (p, e)
+let make_let_rec_defn p e = failwith "Unimplemented: make_let_rec_defn"
+let make_unit_pattern () = PUnit
+let make_wild_pattern () = PWild
+let make_bool_pattern b = PBool b
+let make_int_pattern n = PInt n
+let make_string_pattern s = PString s
+let make_var_pattern x = PVar x
+let make_pair_pattern p1 p2 = PPair (p1, p2)
+let make_nil_pattern () = PNil
+let make_cons_pattern p1 p2 = PCons (p1, p2)
+let make_match e cs = EMatch (e, cs)
+let make_ref e = ERef e
+let make_deref e = EDeref e
+let make_assign e1 e2 = EAssign (e1, e2)
